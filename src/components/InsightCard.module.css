@@ -1,0 +1,54 @@
+.card {
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-glow);
+  color: var(--accent-indigo-light);
+}
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.content {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.paragraph {
+  margin-bottom: 12px;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}

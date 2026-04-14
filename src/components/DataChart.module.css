@@ -1,0 +1,26 @@
+.chartWrap {
+  width: 100%;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+
+.metricLabel {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}

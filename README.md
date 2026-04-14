@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SatQuery
 
-## Getting Started
+Natural language interface for Earth observation data. Ask questions about weather, earthquakes, soil, water, and more.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local`:
 
-## Learn More
+```env
+GEMINI_API_KEY=your_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+Get a free key at https://aistudio.google.com/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Optional: Ollama (No Rate Limits)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Install Ollama from https://ollama.com/download
 
-## Deploy on Vercel
+```bash
+ollama pull qwen2.5:7b
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add to `.env.local`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+USE_OLLAMA_FALLBACK=true
+OLLAMA_MODEL=qwen2.5:7b
+```
+
+## Data Sources
+
+- Open-Meteo (Weather, Air Quality, Marine)
+- USGS (Earthquakes, Water Levels)
+- NASA (EONET Events, Solar Radiation)
+- NOAA (Greenhouse Gases)
+- ISRIC (Soil Properties)
+- World Bank (Socioeconomic Data)
+
+All APIs are free and require no authentication.
+
+## Example Queries
+
+- "Air quality in Los Angeles"
+- "Recent earthquakes in Japan"
+- "Soil quality in Iowa"
+- "Mississippi River water level"
+- "CO2 levels globally"
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Gemini AI + Ollama (fallback)
+- Recharts
+- React-Leaflet
+- SQLite
+
+## License
+
+MIT
