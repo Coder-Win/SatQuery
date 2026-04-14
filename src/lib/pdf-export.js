@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+import "jspdf-autotable";
 
 /**
  * Generates a professional white-background PDF report
@@ -85,7 +85,7 @@ export function exportToPDF(resultData) {
       doc.text("Aggregated Statistics", 14, startY);
       
       const statBody = [statKeys.map(k => stats[k].toString())];
-      autoTable(doc, {
+      doc.autoTable({
         startY: startY + 4,
         head: [statKeys.map(k => k.toUpperCase())],
         body: statBody,
@@ -116,7 +116,7 @@ export function exportToPDF(resultData) {
       ts.detail || ts.category || "-"
     ]);
 
-    autoTable(doc, {
+    doc.autoTable({
       startY: startY + 4,
       head: tableHeaders,
       body: tableBody,
