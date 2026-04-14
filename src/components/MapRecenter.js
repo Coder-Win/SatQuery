@@ -7,14 +7,13 @@ export default function MapRecenter({ center, bounds }) {
   const map = useMap();
 
   useEffect(() => {
-    if (bounds && bounds.length === 4) {
-      // Leaflet expects bounds as [[minLat, minLon], [maxLat, maxLon]]
-      // Our bbox is [minLon, minLat, maxLon, maxLat]
-      const leafletBounds = [
-        [bounds[1], bounds[0]],
-        [bounds[3], bounds[2]]
-      ];
-      map.fitBounds(leafletBounds, { animate: true, duration: 1.5 });
+    if (bounds) {
+      // Add padding so the entire bounding box is visible with some margin
+      map.fitBounds(bounds, { 
+        animate: true, 
+        duration: 1.5,
+        padding: [50, 50] // 50px padding on all sides
+      });
     } else if (center) {
       map.flyTo(center, map.getZoom() || 8, { animate: true, duration: 1.5 });
     }

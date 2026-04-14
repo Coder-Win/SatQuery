@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import styles from "./Dashboard.module.css";
 
 import InsightCard from "./InsightCard";
@@ -8,7 +9,7 @@ import MapView from "./MapView";
 import StatsGrid from "./StatsGrid";
 import { exportToPDF } from "@/lib/pdf-export";
 
-export default function Dashboard({ data }) {
+function Dashboard({ data }) {
   const { result } = data;
   const {
     query,
@@ -111,3 +112,5 @@ export default function Dashboard({ data }) {
     </div>
   );
 }
+
+export default memo(Dashboard);

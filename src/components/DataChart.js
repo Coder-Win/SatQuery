@@ -148,8 +148,8 @@ export default function DataChart({ data, metric }) {
   };
 
   return (
-    <div className={styles.chartContainer} style={{ width: '100%', height: '100%', minHeight: 400 }}>
-      <ResponsiveContainer>
+    <div className={styles.chartContainer}>
+      <ResponsiveContainer width="100%" height={400}>
         {chartType === 'bar' ? (
           <BarChart {...commonProps}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
